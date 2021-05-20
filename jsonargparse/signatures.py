@@ -292,7 +292,7 @@ class SignatureArguments:
             kwargs['type'] = annotation
         elif annotation != inspect_empty:
             try:
-                kwargs['action'] = ActionTypeHint(typehint=annotation)
+                kwargs['action'] = ActionTypeHint(typehint=annotation, enable_path=True)
                 is_subclass_typehint = ActionTypeHint.is_subclass_typehint(annotation)
             except ValueError as ex:
                 self.logger.debug(skip_message+str(ex))  # type: ignore
